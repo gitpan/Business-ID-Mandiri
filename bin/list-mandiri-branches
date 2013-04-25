@@ -1,0 +1,52 @@
+#!/usr/bin/perl
+
+use 5.010;
+use strict;
+use warnings;
+
+use Perinci::CmdLine;
+
+our $VERSION = '0.01'; # VERSION
+
+Perinci::CmdLine->new(url=>'/Business/ID/Mandiri/list_mandiri_branches')->run;
+
+1;
+# ABSTRACT: List Mandiri branches
+# PODNAME: list-mandiri-branches
+
+
+__END__
+=pod
+
+=encoding utf-8
+
+=head1 NAME
+
+list-mandiri-branches - List Mandiri branches
+
+=head1 VERSION
+
+version 0.01
+
+=head1 SYNOPSIS
+
+ % list-mandiri-branches --help
+
+=head1 DESCRIPTION
+
+This is a command-line interface for the <list_mandiri_branches> function in
+L<Business::ID::Mandiri>.
+
+=head1 AUTHOR
+
+Steven Haryanto <stevenharyanto@gmail.com>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2013 by Steven Haryanto.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=cut
+

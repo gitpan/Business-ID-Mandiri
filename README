@@ -1,0 +1,363 @@
+NAME
+    Business::ID::Mandiri - Parse/validate Mandiri account number
+
+VERSION
+    version 0.01
+
+SYNOPSIS
+     use Business::ID::Mandiri::Account qw(parse_mandiri_account);
+     my $res = parse_mandiri_account(account => '1200007799880');
+
+DESCRIPTION
+    This module parses/validates Bank Mandiri account number. Mandiri is one
+    of the major banks in Indonesia.
+
+    It also contains a routine to list known Mandiri branches (4-digit code,
+    which is not included in account numbers). Data is retrieved from the
+    Gudang Data project (http://github.com/sharyanto/gudangdata ).
+
+    Indonesian keywords: struktur nomor rekening Bank Mandiri, format
+    rekening Mandiri, daftar kode cabang Bank Mandiri
+
+BUGS/NOTES
+    List of valid 3-digit branch codes is not yet available/checked.
+
+    Bank Syariah Mandiri (BSM) has a different numbering scheme (10 digits).
+
+AUTHOR
+    Steven Haryanto <stevenharyanto@gmail.com>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2013 by Steven Haryanto.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+
+FUNCTIONS
+    None are exported by default, but they are exportable.
+
+  list_mandiri_branches(%args) -> [status, msg, result, meta]
+    Mandiri branches.
+
+    REPLACE ME
+
+    Data is in table form. Table fields are as follow:
+
+    *   *code* (ID field): Code
+
+    *   *name*: Name
+
+    *   *city_name*: City name
+
+    *   *city_code*: City code, TBD
+
+    *   *ctime*
+
+    *   *note*
+
+    Arguments ('*' denotes required arguments):
+
+    *   city_code => *str*
+
+        Only return records where the 'city_code' field equals specified
+        value.
+
+    *   city_code.contains => *str*
+
+        Only return records where the 'city_code' field contains specified
+        text.
+
+    *   city_code.is => *str*
+
+        Only return records where the 'city_code' field equals specified
+        value.
+
+    *   city_code.max => *str*
+
+        Only return records where the 'city_code' field is less than or
+        equal to specified value.
+
+    *   city_code.min => *array*
+
+        Only return records where the 'city_code' field is greater than or
+        equal to specified value.
+
+    *   city_code.not_contains => *str*
+
+        Only return records where the 'city_code' field does not contain a
+        certain text.
+
+    *   city_code.xmax => *str*
+
+        Only return records where the 'city_code' field is less than
+        specified value.
+
+    *   city_code.xmin => *array*
+
+        Only return records where the 'city_code' field is greater than
+        specified value.
+
+    *   city_name => *str*
+
+        Only return records where the 'city_name' field equals specified
+        value.
+
+    *   city_name.contains => *str*
+
+        Only return records where the 'city_name' field contains specified
+        text.
+
+    *   city_name.is => *str*
+
+        Only return records where the 'city_name' field equals specified
+        value.
+
+    *   city_name.max => *str*
+
+        Only return records where the 'city_name' field is less than or
+        equal to specified value.
+
+    *   city_name.min => *array*
+
+        Only return records where the 'city_name' field is greater than or
+        equal to specified value.
+
+    *   city_name.not_contains => *str*
+
+        Only return records where the 'city_name' field does not contain a
+        certain text.
+
+    *   city_name.xmax => *str*
+
+        Only return records where the 'city_name' field is less than
+        specified value.
+
+    *   city_name.xmin => *array*
+
+        Only return records where the 'city_name' field is greater than
+        specified value.
+
+    *   code => *str*
+
+        Only return records where the 'code' field equals specified value.
+
+    *   code.contains => *str*
+
+        Only return records where the 'code' field contains specified text.
+
+    *   code.is => *str*
+
+        Only return records where the 'code' field equals specified value.
+
+    *   code.max => *str*
+
+        Only return records where the 'code' field is less than or equal to
+        specified value.
+
+    *   code.min => *array*
+
+        Only return records where the 'code' field is greater than or equal
+        to specified value.
+
+    *   code.not_contains => *str*
+
+        Only return records where the 'code' field does not contain a
+        certain text.
+
+    *   code.xmax => *str*
+
+        Only return records where the 'code' field is less than specified
+        value.
+
+    *   code.xmin => *array*
+
+        Only return records where the 'code' field is greater than specified
+        value.
+
+    *   ctime => *str*
+
+        Only return records where the 'ctime' field equals specified value.
+
+    *   ctime.contains => *str*
+
+        Only return records where the 'ctime' field contains specified text.
+
+    *   ctime.is => *str*
+
+        Only return records where the 'ctime' field equals specified value.
+
+    *   ctime.max => *str*
+
+        Only return records where the 'ctime' field is less than or equal to
+        specified value.
+
+    *   ctime.min => *array*
+
+        Only return records where the 'ctime' field is greater than or equal
+        to specified value.
+
+    *   ctime.not_contains => *str*
+
+        Only return records where the 'ctime' field does not contain a
+        certain text.
+
+    *   ctime.xmax => *str*
+
+        Only return records where the 'ctime' field is less than specified
+        value.
+
+    *   ctime.xmin => *array*
+
+        Only return records where the 'ctime' field is greater than
+        specified value.
+
+    *   detail => *bool* (default: 0)
+
+        Return array of full records instead of just ID fields.
+
+        By default, only the key (ID) field is returned per result entry.
+
+    *   fields => *array* (default: "code")
+
+        Select fields to return.
+
+    *   name => *str*
+
+        Only return records where the 'name' field equals specified value.
+
+    *   name.contains => *str*
+
+        Only return records where the 'name' field contains specified text.
+
+    *   name.is => *str*
+
+        Only return records where the 'name' field equals specified value.
+
+    *   name.max => *str*
+
+        Only return records where the 'name' field is less than or equal to
+        specified value.
+
+    *   name.min => *array*
+
+        Only return records where the 'name' field is greater than or equal
+        to specified value.
+
+    *   name.not_contains => *str*
+
+        Only return records where the 'name' field does not contain a
+        certain text.
+
+    *   name.xmax => *str*
+
+        Only return records where the 'name' field is less than specified
+        value.
+
+    *   name.xmin => *array*
+
+        Only return records where the 'name' field is greater than specified
+        value.
+
+    *   note => *str*
+
+        Only return records where the 'note' field equals specified value.
+
+    *   note.contains => *str*
+
+        Only return records where the 'note' field contains specified text.
+
+    *   note.is => *str*
+
+        Only return records where the 'note' field equals specified value.
+
+    *   note.max => *str*
+
+        Only return records where the 'note' field is less than or equal to
+        specified value.
+
+    *   note.min => *array*
+
+        Only return records where the 'note' field is greater than or equal
+        to specified value.
+
+    *   note.not_contains => *str*
+
+        Only return records where the 'note' field does not contain a
+        certain text.
+
+    *   note.xmax => *str*
+
+        Only return records where the 'note' field is less than specified
+        value.
+
+    *   note.xmin => *array*
+
+        Only return records where the 'note' field is greater than specified
+        value.
+
+    *   q => *str*
+
+        Search.
+
+    *   random => *bool* (default: 0)
+
+        Return records in random order.
+
+    *   result_limit => *int*
+
+        Only return a certain number of records.
+
+    *   result_start => *int* (default: 1)
+
+        Only return starting from the n'th record.
+
+    *   sort => *str*
+
+        Order records according to certain field(s).
+
+        A list of field names separated by comma. Each field can be prefixed
+        with '-' to specify descending order instead of the default
+        ascending.
+
+    *   with_field_names => *bool*
+
+        Return field names in each record (as hash/associative array).
+
+        When enabled, function will return each record as hash/associative
+        array (field name => value pairs). Otherwise, function will return
+        each record as list/array (field value, field value, ...).
+
+    Return value:
+
+    Returns an enveloped result (an array). First element (status) is an
+    integer containing HTTP status code (200 means OK, 4xx caller error, 5xx
+    function error). Second element (msg) is a string containing error
+    message, or 'OK' if status is 200. Third element (result) is optional,
+    the actual result. Fourth element (meta) is called result metadata and
+    is optional, a hash that contains extra information.
+
+  parse_mandiri_account(%args) -> [status, msg, result, meta]
+    Parse/validate Mandiri account number.
+
+    Upon success/valid number, return status 200 with hash containing parsed
+    information. Upon invalid number, return 400. Parsed information
+    contains these keys:
+
+    *   "account" (13-digits)
+
+    *   "account_f" (canonically-formatted account number, e.g.
+        120.0007799880)
+
+    Arguments ('*' denotes required arguments):
+
+    *   account* => *str*
+
+    Return value:
+
+    Returns an enveloped result (an array). First element (status) is an
+    integer containing HTTP status code (200 means OK, 4xx caller error, 5xx
+    function error). Second element (msg) is a string containing error
+    message, or 'OK' if status is 200. Third element (result) is optional,
+    the actual result. Fourth element (meta) is called result metadata and
+    is optional, a hash that contains extra information.
+
