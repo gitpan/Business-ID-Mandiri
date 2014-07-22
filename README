@@ -2,7 +2,8 @@ NAME
     Business::ID::Mandiri - Parse/validate Mandiri account number
 
 VERSION
-    version 0.01
+    This document describes version 0.02 of Business::ID::Mandiri (from Perl
+    distribution Business-ID-Mandiri), released on 2014-07-22.
 
 SYNOPSIS
      use Business::ID::Mandiri::Account qw(parse_mandiri_account);
@@ -19,41 +20,11 @@ DESCRIPTION
     Indonesian keywords: struktur nomor rekening Bank Mandiri, format
     rekening Mandiri, daftar kode cabang Bank Mandiri
 
-BUGS/NOTES
-    List of valid 3-digit branch codes is not yet available/checked.
-
-    Bank Syariah Mandiri (BSM) has a different numbering scheme (10 digits).
-
-AUTHOR
-    Steven Haryanto <stevenharyanto@gmail.com>
-
-COPYRIGHT AND LICENSE
-    This software is copyright (c) 2013 by Steven Haryanto.
-
-    This is free software; you can redistribute it and/or modify it under
-    the same terms as the Perl 5 programming language system itself.
-
 FUNCTIONS
-    None are exported by default, but they are exportable.
-
   list_mandiri_branches(%args) -> [status, msg, result, meta]
     Mandiri branches.
 
     REPLACE ME
-
-    Data is in table form. Table fields are as follow:
-
-    *   *code* (ID field): Code
-
-    *   *name*: Name
-
-    *   *city_name*: City name
-
-    *   *city_code*: City code, TBD
-
-    *   *ctime*
-
-    *   *note*
 
     Arguments ('*' denotes required arguments):
 
@@ -67,32 +38,47 @@ FUNCTIONS
         Only return records where the 'city_code' field contains specified
         text.
 
+    *   city_code.in => *array*
+
+        Only return records where the 'city_code' field is in the specified
+        values.
+
     *   city_code.is => *str*
 
         Only return records where the 'city_code' field equals specified
         value.
+
+    *   city_code.isnt => *str*
+
+        Only return records where the 'city_code' field does not equal
+        specified value.
 
     *   city_code.max => *str*
 
         Only return records where the 'city_code' field is less than or
         equal to specified value.
 
-    *   city_code.min => *array*
+    *   city_code.min => *str*
 
         Only return records where the 'city_code' field is greater than or
         equal to specified value.
 
     *   city_code.not_contains => *str*
 
-        Only return records where the 'city_code' field does not contain a
-        certain text.
+        Only return records where the 'city_code' field does not contain
+        specified text.
+
+    *   city_code.not_in => *array*
+
+        Only return records where the 'city_code' field is not in the
+        specified values.
 
     *   city_code.xmax => *str*
 
         Only return records where the 'city_code' field is less than
         specified value.
 
-    *   city_code.xmin => *array*
+    *   city_code.xmin => *str*
 
         Only return records where the 'city_code' field is greater than
         specified value.
@@ -107,32 +93,47 @@ FUNCTIONS
         Only return records where the 'city_name' field contains specified
         text.
 
+    *   city_name.in => *array*
+
+        Only return records where the 'city_name' field is in the specified
+        values.
+
     *   city_name.is => *str*
 
         Only return records where the 'city_name' field equals specified
         value.
+
+    *   city_name.isnt => *str*
+
+        Only return records where the 'city_name' field does not equal
+        specified value.
 
     *   city_name.max => *str*
 
         Only return records where the 'city_name' field is less than or
         equal to specified value.
 
-    *   city_name.min => *array*
+    *   city_name.min => *str*
 
         Only return records where the 'city_name' field is greater than or
         equal to specified value.
 
     *   city_name.not_contains => *str*
 
-        Only return records where the 'city_name' field does not contain a
-        certain text.
+        Only return records where the 'city_name' field does not contain
+        specified text.
+
+    *   city_name.not_in => *array*
+
+        Only return records where the 'city_name' field is not in the
+        specified values.
 
     *   city_name.xmax => *str*
 
         Only return records where the 'city_name' field is less than
         specified value.
 
-    *   city_name.xmin => *array*
+    *   city_name.xmin => *str*
 
         Only return records where the 'city_name' field is greater than
         specified value.
@@ -145,31 +146,46 @@ FUNCTIONS
 
         Only return records where the 'code' field contains specified text.
 
+    *   code.in => *array*
+
+        Only return records where the 'code' field is in the specified
+        values.
+
     *   code.is => *str*
 
         Only return records where the 'code' field equals specified value.
+
+    *   code.isnt => *str*
+
+        Only return records where the 'code' field does not equal specified
+        value.
 
     *   code.max => *str*
 
         Only return records where the 'code' field is less than or equal to
         specified value.
 
-    *   code.min => *array*
+    *   code.min => *str*
 
         Only return records where the 'code' field is greater than or equal
         to specified value.
 
     *   code.not_contains => *str*
 
-        Only return records where the 'code' field does not contain a
-        certain text.
+        Only return records where the 'code' field does not contain
+        specified text.
+
+    *   code.not_in => *array*
+
+        Only return records where the 'code' field is not in the specified
+        values.
 
     *   code.xmax => *str*
 
         Only return records where the 'code' field is less than specified
         value.
 
-    *   code.xmin => *array*
+    *   code.xmin => *str*
 
         Only return records where the 'code' field is greater than specified
         value.
@@ -182,31 +198,46 @@ FUNCTIONS
 
         Only return records where the 'ctime' field contains specified text.
 
+    *   ctime.in => *array*
+
+        Only return records where the 'ctime' field is in the specified
+        values.
+
     *   ctime.is => *str*
 
         Only return records where the 'ctime' field equals specified value.
+
+    *   ctime.isnt => *str*
+
+        Only return records where the 'ctime' field does not equal specified
+        value.
 
     *   ctime.max => *str*
 
         Only return records where the 'ctime' field is less than or equal to
         specified value.
 
-    *   ctime.min => *array*
+    *   ctime.min => *str*
 
         Only return records where the 'ctime' field is greater than or equal
         to specified value.
 
     *   ctime.not_contains => *str*
 
-        Only return records where the 'ctime' field does not contain a
-        certain text.
+        Only return records where the 'ctime' field does not contain
+        specified text.
+
+    *   ctime.not_in => *array*
+
+        Only return records where the 'ctime' field is not in the specified
+        values.
 
     *   ctime.xmax => *str*
 
         Only return records where the 'ctime' field is less than specified
         value.
 
-    *   ctime.xmin => *array*
+    *   ctime.xmin => *str*
 
         Only return records where the 'ctime' field is greater than
         specified value.
@@ -229,31 +260,46 @@ FUNCTIONS
 
         Only return records where the 'name' field contains specified text.
 
+    *   name.in => *array*
+
+        Only return records where the 'name' field is in the specified
+        values.
+
     *   name.is => *str*
 
         Only return records where the 'name' field equals specified value.
+
+    *   name.isnt => *str*
+
+        Only return records where the 'name' field does not equal specified
+        value.
 
     *   name.max => *str*
 
         Only return records where the 'name' field is less than or equal to
         specified value.
 
-    *   name.min => *array*
+    *   name.min => *str*
 
         Only return records where the 'name' field is greater than or equal
         to specified value.
 
     *   name.not_contains => *str*
 
-        Only return records where the 'name' field does not contain a
-        certain text.
+        Only return records where the 'name' field does not contain
+        specified text.
+
+    *   name.not_in => *array*
+
+        Only return records where the 'name' field is not in the specified
+        values.
 
     *   name.xmax => *str*
 
         Only return records where the 'name' field is less than specified
         value.
 
-    *   name.xmin => *array*
+    *   name.xmin => *str*
 
         Only return records where the 'name' field is greater than specified
         value.
@@ -266,31 +312,46 @@ FUNCTIONS
 
         Only return records where the 'note' field contains specified text.
 
+    *   note.in => *array*
+
+        Only return records where the 'note' field is in the specified
+        values.
+
     *   note.is => *str*
 
         Only return records where the 'note' field equals specified value.
+
+    *   note.isnt => *str*
+
+        Only return records where the 'note' field does not equal specified
+        value.
 
     *   note.max => *str*
 
         Only return records where the 'note' field is less than or equal to
         specified value.
 
-    *   note.min => *array*
+    *   note.min => *str*
 
         Only return records where the 'note' field is greater than or equal
         to specified value.
 
     *   note.not_contains => *str*
 
-        Only return records where the 'note' field does not contain a
-        certain text.
+        Only return records where the 'note' field does not contain
+        specified text.
+
+    *   note.not_in => *array*
+
+        Only return records where the 'note' field is not in the specified
+        values.
 
     *   note.xmax => *str*
 
         Only return records where the 'note' field is less than specified
         value.
 
-    *   note.xmin => *array*
+    *   note.xmin => *str*
 
         Only return records where the 'note' field is greater than specified
         value.
@@ -329,12 +390,16 @@ FUNCTIONS
 
     Return value:
 
-    Returns an enveloped result (an array). First element (status) is an
-    integer containing HTTP status code (200 means OK, 4xx caller error, 5xx
-    function error). Second element (msg) is a string containing error
-    message, or 'OK' if status is 200. Third element (result) is optional,
-    the actual result. Fourth element (meta) is called result metadata and
-    is optional, a hash that contains extra information.
+    Returns an enveloped result (an array).
+
+    First element (status) is an integer containing HTTP status code (200
+    means OK, 4xx caller error, 5xx function error). Second element (msg) is
+    a string containing error message, or 'OK' if status is 200. Third
+    element (result) is optional, the actual result. Fourth element (meta)
+    is called result metadata and is optional, a hash that contains extra
+    information.
+
+     (any)
 
   parse_mandiri_account(%args) -> [status, msg, result, meta]
     Parse/validate Mandiri account number.
@@ -354,10 +419,43 @@ FUNCTIONS
 
     Return value:
 
-    Returns an enveloped result (an array). First element (status) is an
-    integer containing HTTP status code (200 means OK, 4xx caller error, 5xx
-    function error). Second element (msg) is a string containing error
-    message, or 'OK' if status is 200. Third element (result) is optional,
-    the actual result. Fourth element (meta) is called result metadata and
-    is optional, a hash that contains extra information.
+    Returns an enveloped result (an array).
+
+    First element (status) is an integer containing HTTP status code (200
+    means OK, 4xx caller error, 5xx function error). Second element (msg) is
+    a string containing error message, or 'OK' if status is 200. Third
+    element (result) is optional, the actual result. Fourth element (meta)
+    is called result metadata and is optional, a hash that contains extra
+    information.
+
+     (any)
+
+BUGS/NOTES
+    List of valid 3-digit branch codes is not yet available/checked.
+
+    Bank Syariah Mandiri (BSM) has a different numbering scheme (10 digits).
+
+HOMEPAGE
+    Please visit the project's homepage at
+    <https://metacpan.org/release/Business-ID-Mandiri>.
+
+SOURCE
+    Source repository is at
+    <https://github.com/sharyanto/perl-Business-ID-Mandiri>.
+
+BUGS
+    Please report any bugs or feature requests on the bugtracker website
+    <https://rt.cpan.org/Public/Dist/Display.html?Name=Business-ID-Mandiri>
+
+    When submitting a bug or request, please include a test-file or a patch
+    to an existing test-file that illustrates the bug or desired feature.
+
+AUTHOR
+    Steven Haryanto <stevenharyanto@gmail.com>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2014 by Steven Haryanto.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
 
